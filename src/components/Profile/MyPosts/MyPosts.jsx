@@ -12,11 +12,8 @@ const MyPosts = () => {
                 <button>Post remove</button>
             </div>
             <div className={s.posts}>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post message='Hi? how are you?' counter='&#10084; - 327'/>
+                <Post message='Hello! It is my first project' counter='&#10084; - 125'/>
             </div>
         </div>
     );
