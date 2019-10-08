@@ -1,0 +1,11 @@
+.item {
+    color: #faf167;
+}
+
+.item img {
+    width: 50px;
+}
+
+.item img:hover {
+    transform: scale(1.2);
+}
