@@ -11,3 +11,7 @@
 .item.active {
     color: gold;
 }
+
+.item {
+    margin: 15px
+}
