@@ -6,9 +6,9 @@ const Post = (props) => {
         <div className={s.item}>
             <img alt='avatar'
                  src='https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1'/><br/>
-            {props.message},
+            {props.message}
             <div>
-                {props.counter}
+                {props.likesCount}
             </div>
         </div>
     );
