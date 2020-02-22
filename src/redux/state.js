@@ -6,7 +6,8 @@ let state = {
             {id: 1, message: 'Hi? how are you?', likesCount: 'Like - 327'},
             {id: 2, message: 'Hello! It is my first project!', likesCount: 'Like - 125'},
             {id: 3, message: 'Hello!', likesCount: 'Like - 25'}
-        ]
+        ],
+        newPostText: ''
     },
     messagesPage: {
         messages: [
@@ -27,13 +28,19 @@ let state = {
     sidebar: {}
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 3,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 'Like - 112'
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 };
 
