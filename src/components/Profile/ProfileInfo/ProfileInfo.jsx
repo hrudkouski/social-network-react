@@ -7,8 +7,8 @@ const ProfileInfo = () => {
             <div>
                 <img
                     alt='img content'
-                    src='https://st.depositphotos.com/1038117/2709/i/450/depositphotos_27098687-stock-photo-caribbean-sea-and-wooden-platform.jpg'/>
-            </div>
+                    src='https://iycoalition.org/wp-content/uploads/social-media-mobile-icons-snapchat-facebook-instagram-ss-800x450-3-800x450.jpg'/>
+        </div>
             <div className={s.description}>
                 ava + description
             </div>
