@@ -1,6 +1,6 @@
 import profileReducer from "./reducer-profile";
 import dialogsReducer from "./reducer-dialogs";
-import sidebarReducer from "./reducer-sidebar";
+// import sidebarReducer from "./reducer-sidebar";
 
 let store = {
     _state: {
@@ -28,18 +28,16 @@ let store = {
     _callSubscriber() {
         console.log('State changed');
     },
-
     getState() {
         return this._state;
     },
-    subscriber(observer) {
+    subscribe(observer) {
         this._callSubscriber = observer;
     },
-
     dispatch(action) {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
-        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        // this._state.sidebar = sidebarReducer(this._state.sidebar, action);
         this._callSubscriber(this._state);
     }
 };
