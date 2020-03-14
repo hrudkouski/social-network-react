@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://hrudkouski.github.io/social-network-react",
   "dependencies": {
+    "axios": "^0.19.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.2.0",
