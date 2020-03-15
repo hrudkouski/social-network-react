@@ -4,6 +4,14 @@
 }
 
 .header img {
-    width: 50px;
+    width: 9%;
     padding: 0 15px;
+}
+
+.header img:hover {
+    cursor: pointer;
+}
+
+.title {
+    font-size: 40px;
 }

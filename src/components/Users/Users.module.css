@@ -3,5 +3,13 @@
 }
 
 .container {
-    background-color: #b5b89c;
+    background-color: rgba(62, 156, 207, 0.12);
+    margin: 10px;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }

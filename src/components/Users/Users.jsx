@@ -5,14 +5,16 @@ import avatar from "../../assets/images/avatar.png";
 
 const Users = (props) => {
 
-    if (props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                props.setUsers(response.data.items);
-            });
-    }
-
-    return <div>
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    props.setUsers(response.data.items);
+                });
+        }
+    };
+    debugger
+    return <div className={s.wrapper}>
         {
             props.users.map(u => <div key={u.id} className={s.container}>
                 <span>
@@ -46,7 +48,9 @@ const Users = (props) => {
                 </span>
             </div>)
         }
+        <button onClick={getUsers}>Get Users</button>
     </div>
+
 };
 
 export default Users;

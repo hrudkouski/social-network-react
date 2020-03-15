@@ -16,8 +16,10 @@
 }
 
 .item a {
-    color: white;
+    color: black;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .item a.activeLink {
