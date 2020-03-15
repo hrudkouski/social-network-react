@@ -3,20 +3,20 @@ import s from './Users.module.css';
 import * as axios from "axios";
 import avatar from "../../assets/images/avatar.png";
 
-const Users = (props) => {
+class Users extends React.Component {
 
-    let getUsers = () => {
-        if (props.users.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users')
-                .then(response => {
-                    props.setUsers(response.data.items);
-                });
-        }
+    constructor(props) {
+        super(props);
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            });
     };
-    debugger
-    return <div className={s.wrapper}>
-        {
-            props.users.map(u => <div key={u.id} className={s.container}>
+
+    render() {
+        return <div className={s.wrapper}>
+            {
+                this.props.users.map(u => <div key={u.id} className={s.container}>
                 <span>
                     <div>
                         <img alt='avatar'
@@ -27,16 +27,15 @@ const Users = (props) => {
                         {
                             u.followed === true
                                 ? <button onClick={() => {
-                                    props.unFollow(u.id)
+                                    this.props.unFollow(u.id)
                                 }}>unFollow</button>
                                 : <button onClick={() => {
-                                    props.follow(u.id)
+                                    this.props.follow(u.id)
                                 }}>Follow</button>
                         }
                     </div>
                 </span>
-
-                <span>
+                    <span>
                     <span>
                         <div>{u.name}</div>
                         <div>{u.status}</div>
@@ -46,12 +45,11 @@ const Users = (props) => {
                         <div>{'u.location.country'}</div>
                     </span>
                 </span>
-            </div>)
-        }
-        <button onClick={getUsers}>Get Users</button>
-    </div>
-
-};
+                </div>)
+            }
+        </div>
+    };
+}
 
 export default Users;
 
