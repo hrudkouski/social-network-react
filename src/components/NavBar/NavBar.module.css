@@ -23,5 +23,6 @@
 }
 
 .item a.activeLink {
-    color: gold;
+    background-color: gold;
+    text-decoration: underline;
 }
