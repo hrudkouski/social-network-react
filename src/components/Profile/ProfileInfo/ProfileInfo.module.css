@@ -1,9 +1,16 @@
 .profileInfo img {
     padding-left: 15px;
-    width: 60%;
     margin: 20px;
 }
 
 .description {
     padding: 15px;
+}
+
+.aboutMe {
+    color: red;
+}
+
+.profileInfo {
+    display: flex;
 }
