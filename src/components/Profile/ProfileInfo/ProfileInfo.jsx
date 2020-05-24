@@ -7,10 +7,6 @@ const ProfileInfo = (props) => {
         return <Preloader/>
     }
 
-    // if (props.profile.lookingForAJob === false){
-    //     return <span>1</span>
-    // }
-
     return (
         <div className={s.profileInfo}>
             {/*<div>*/}

@@ -15,3 +15,15 @@
 .title {
     font-size: 40px;
 }
+
+.login {
+    float: right;
+    margin: 15px;
+    padding: 0;
+}
+
+.login a {
+    font-weight: bold;
+    color: #FFD700;
+    font-size: 1.3em;
+}
