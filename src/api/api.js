@@ -21,4 +21,12 @@ export const usersAPI = {
                 return response.data
             });
     }
+
+    // unFollow() {
+    //     return instance.get(`follow/userID`)
+    //         .then(response => {
+    //             return response.data
+    //         });
+    // }
+
 };

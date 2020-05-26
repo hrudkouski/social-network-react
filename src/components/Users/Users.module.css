@@ -29,6 +29,10 @@
     cursor: pointer;
 }
 
+.userItem button:hover {
+    cursor: pointer;
+}
+
 .pages span {
     margin-left: 5px;
 }
