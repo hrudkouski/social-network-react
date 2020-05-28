@@ -2,7 +2,6 @@ import React from "react";
 import s from './Users.module.css';
 import avatar from "../../assets/images/avatar.png";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -30,37 +29,31 @@ let Users = (props) => {
 
                     <div className={s.userItem}>
                         {u.followed
-                            ? <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
-                                props.toggleIsFollowingProgress(true, u.id);
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "3af7a44d-0a6b-4bf7-b34b-b5730fa5756f"
-                                    }
-                                })
-                                    .then(response => {
-                                        if (response.data.resultCode === 0) {
-                                            props.unFollow(u.id);
-                                        }
-                                        props.toggleIsFollowingProgress(false, u.id);
-                                    });
-                            }}>unFollow</button>
+                            ? <button className={s.unFollow}
+                                      disabled={props.followingProgress.some(id => id === u.id)}
+                                      onClick={() => {
+                                          props.unFollow(u.id);
+                                          // props.toggleIsFollowingProgress(true, u.id);
+                                          // usersAPI.unFollowApi.then(response => {
+                                          //     if (response.data.resultCode === 0) {
+                                          //         props.unFollow(u.id);
+                                          //     }
+                                          //     props.toggleIsFollowingProgress(false, u.id);
+                                          // });
+                                      }}>unFollow</button>
 
-                            : <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
-                                props.toggleIsFollowingProgress(true, u.id);
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "3af7a44d-0a6b-4bf7-b34b-b5730fa5756f"
-                                    }
-                                })
-                                    .then(response => {
-                                        if (response.data.resultCode === 0) {
-                                            props.follow(u.id);
-                                        }
-                                        props.toggleIsFollowingProgress(false, u.id);
-                                    });
-                            }}>Follow</button>
+                            : <button className={s.follow}
+                                      disabled={props.followingProgress.some(id => id === u.id)}
+                                      onClick={() => {
+                                          props.follow(u.id);
+                                          // props.toggleIsFollowingProgress(true, u.id);
+                                          // usersAPI.followApi.then(response => {
+                                          //     if (response.data.resultCode === 0) {
+                                          //         props.follow(u.id);
+                                          //     }
+                                          //     props.toggleIsFollowingProgress(false, u.id);
+                                          // });
+                                      }}>Follow</button>
                         }
                     </div>
                 </span>

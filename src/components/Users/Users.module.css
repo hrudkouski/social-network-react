@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    background-color: rgba(55, 66, 122, 0.24);
 }
 
 .selectedPage {
@@ -35,4 +36,12 @@
 
 .pages span {
     margin-left: 5px;
+}
+
+.unFollow {
+    background-color: red;
+}
+
+.follow {
+    background-color: #1DA1F2;
 }
