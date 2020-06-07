@@ -9,11 +9,6 @@ const ProfileInfo = (props) => {
 
     return (
         <div className={s.profileInfo}>
-            {/*<div>*/}
-            {/*    <img*/}
-            {/*        alt='img content'*/}
-            {/*        src='https://iycoalition.org/wp-content/uploads/social-media-mobile-icons-snapchat-facebook-instagram-ss-800x450-3-800x450.jpg'/>*/}
-            {/*</div>*/}
             <div className={s.description}>
                 <img alt={''} src={props.profile.photos.large}/>
                 <div>Full Name: {props.profile.fullName}</div>
