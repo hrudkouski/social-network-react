@@ -7,31 +7,21 @@ import {
 import React from "react";
 import Users from "./Users";
 import Preloader from "../../common/Preloader";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
-        // this.props.toggleIsFetching(true);
-        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-        //     this.props.toggleIsFetching(false);
-        //     this.props.setUsers(data.items);
-        //     this.props.setTotalUsersCount(data.totalCount);
-        // });
     };
 
     onPageChanged = (pageNumber) => {
         this.props.getUsers(pageNumber, this.props.pageSize);
-        // this.props.setCurrentPage(pageNumber);   ?!!??!?!?!
-        // this.props.toggleIsFetching(true);
-        // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-        //     this.props.toggleIsFetching(false);
-        //     this.props.setUsers(data.items);
-        // });
     };
 
     render() {
-        return <>
+
+        return <div>
             {this.props.isFetching ? <Preloader/> : null}
             <Users pageSize={this.props.pageSize}
                    unFollow={this.props.unFollow}
@@ -41,9 +31,11 @@ class UsersContainer extends React.Component {
                    onPageChanged={this.onPageChanged}
                    followingProgress={this.props.followingProgress}
                    totalUsersCount={this.props.totalUsersCount}/>
-        </>
+        </div>
     }
 }
+
+let AuthRedirectComponent = withAuthRedirect(UsersContainer);
 
 let mapStateToProps = (state) => {
     return {
@@ -52,11 +44,12 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        followingProgress: state.usersPage.followingProgress
+        followingProgress: state.usersPage.followingProgress,
+        isAuth: state.auth.isAuth
     }
 };
 
 export default UsersContainer = connect(mapStateToProps, {
     followSuccess, unFollowSuccess, setCurrentPage,
     toggleIsFollowingProgress, getUsers, follow, unFollow
-})(UsersContainer);
+})(AuthRedirectComponent);
