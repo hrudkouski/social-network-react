@@ -48,15 +48,10 @@ let mapStateToProps = (state) => {
     }
 };
 
-// let AuthRedirectComponent = withAuthRedirect(UsersContainer);
-
 export default compose(
-    connect(mapStateToProps, {followSuccess, unFollowSuccess, setCurrentPage,
-        toggleIsFollowingProgress, getUsers, follow, unFollow}),
+    connect(mapStateToProps, {
+        followSuccess, unFollowSuccess, setCurrentPage,
+        toggleIsFollowingProgress, getUsers, follow, unFollow
+    }),
     withAuthRedirect
 )(UsersContainer);
-
-// export default UsersContainer = connect(mapStateToProps, {
-//     followSuccess, unFollowSuccess, setCurrentPage,
-//     toggleIsFollowingProgress, getUsers, follow, unFollow
-// })(AuthRedirectComponent);

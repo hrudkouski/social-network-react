@@ -3,6 +3,7 @@
     background-color: #4370b4;
     padding: 20px
 }
+
 .item {
     margin: 15px 0;
 }
@@ -24,5 +25,4 @@
 
 .item a.activeLink {
     background-color: gold;
-    text-decoration: underline;
 }
